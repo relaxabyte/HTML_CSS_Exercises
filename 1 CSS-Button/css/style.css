@@ -1,3 +1,5 @@
+/* Provided CSS */
+@import url("https://fonts.googleapis.com/css?family=Roboto:500,700,900");
 .example {
   margin-bottom: 2em;
   margin-left: -1em;
@@ -9,4 +11,72 @@
 
 .css-button {
   margin-left: 0;
+}
+
+/* My CSS */
+.css-button {
+  width: 154px;
+  border: 1px solid #666;
+  border-radius: 10px;
+  background-clip: content-box;
+  padding: 1px;
+  background-color: #cbcbcb;
+  box-shadow: 0 1px 2px #999;
+}
+
+.css-button .btn-default {
+  margin: 3px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border-color: #ababab;
+  background: #d3d3d3;
+  /* old browsers */
+  background: -webkit-linear-gradient(bottom, #adadad 0%, #c5c5c5 50%, #d3d3d3 55%, #e0e0e0 100%);
+  background: linear-gradient(0deg, #adadad 0%, #c5c5c5 50%, #d3d3d3 55%, #e0e0e0 100%);
+  box-shadow: 0 2px 2px #777;
+  font-family: helvetica,arial,sans-serif;
+  /* couldn't identify exact font, but this is close */
+  font-weight: 700;
+  font-size: 14px;
+  text-shadow: none;
+  color: #555;
+  text-transform: uppercase;
+  outline: none !important;
+}
+.css-button .btn-default:hover, .css-button .btn-default:active, .css-button .btn-default:visited, .css-button .btn-default:focus {
+  border-color: #ababab;
+  background: #d3d3d3;
+  /* old browsers */
+  background: -webkit-linear-gradient(bottom, #adadad 0%, #c5c5c5 50%, #d3d3d3 55%, #e0e0e0 100%);
+  background: linear-gradient(0deg, #adadad 0%, #c5c5c5 50%, #d3d3d3 55%, #e0e0e0 100%);
+  color: #555;
+}
+.css-button .btn-default:before, .css-button .btn-default:after {
+  content: '\e006';
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  color: #888;
+  font-size: 12px;
+  vertical-align: middle;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  opacity: 1.0;
+}
+.css-button .btn-default:before {
+  padding-right: 6px;
+}
+.css-button .btn-default:after {
+  padding-left: 9px;
+}
+.css-button .btn-default:hover:before, .css-button .btn-default:hover:after {
+  -webkit-transform: scale(1.6);
+          transform: scale(1.6);
+  opacity: 0.6;
+}
+.css-button .btn-default:active:before, .css-button .btn-default:active:after {
+  -webkit-transform: scale(0.6);
+          transform: scale(0.6);
+  opacity: 1.0;
 }
