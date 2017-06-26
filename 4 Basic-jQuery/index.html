@@ -47,8 +47,19 @@
     
     <script type="text/javascript">
       function init() {
-
+        var btn1 = 'Bar';
+        var btn2 = '<img src="https://static1.squarespace.com/static/56820fcf69a91ad70f5e08c3/568317f8bfe87330444a83a4/5685afed40667a386908e56f/1451601905402/image.jpeg?format=300w" alt="American blue lobster" width="300" height="400"/>';
+        $( "#first-btn" ).on( "click", function() {
+          $( "#first-btn" ).text(btn1);
+        });
+        $( "#second-btn" ).on( "click", function() {
+          $( "#second-btn" ).html(btn2);
+          console.log("An estimated 1 in 2 million lobsters are blue. A genetic mutation causes a blue lobster to produce an excessive amount of a particular protein. The protein and a red carotenoid molecule known as astaxanthin combine to form a blue complex known as crustacyanin, giving the lobster its blue color.");
+        });
       }
+      $( document ).ready(function() {
+          init();
+      });
     </script>
 </body>
 
