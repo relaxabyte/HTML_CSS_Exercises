@@ -8,7 +8,7 @@
 
 
     	/** @function getSyllables
-		 *  @description Finds the number of syllables in a word. 
+		 *  @description Finds the number of syllables in a word.
 		 *  This algorithm has flaws (example: "wholesale" is considered 4 syllables instead of 2.)
 		 *  {@link https://stackoverflow.com/questions/5686483/how-to-compute-number-of-syllables-in-a-word-in-javascript | Source of algorithm}
 		 *  @param {string} input word to check for syllable count
@@ -55,24 +55,24 @@
 		/** @function generateLine
 		 *  @description Selects random words to fit to syllable count.
 		 *  @param {Number} Number of syllables in a line
-		 *  @returns {string} */	
+		 *  @returns {string} */
 		function generateLine(syll,words) {
 
 		 	var max = syll; //Max syllables for line
 		 	var cur = max; //Initialize currently available syllable
 		 	var line = ''; //Output string
 
-		 	for (i = 0; i < max;) { 
+		 	for (i = 0; i < max;) {
 
 			 	//Get a random word.
 			 	var random_word = words[Math.floor(Math.random() * words.length)];
 
 			 	//Get new word if syllable count is too high
-			 	while (random_word.count > cur) { 
+			 	while (random_word.count > cur) {
 			 		//console.log('new word: '+random_word.word);
 			 		random_word = words[Math.floor(Math.random() * words.length)];
 			 	}
-			 	
+
 			 	//console.log('rw word: ' + random_word.word + 'count: ' + random_word.count);
 
 			 	//Assign word to output.
@@ -91,7 +91,7 @@
 		/** @function writeHaiku
 		 *  @description Write a haiku.
 		 *  @param {Number} Number of syllables in a line
-		 *  @returns {string} */	
+		 *  @returns {string} */
 		 function writeHaiku() {
 			var titleText = generateLine(haiku_title,wordList);
 			var line1Text = generateLine(haiku_5syll,wordList);
@@ -100,7 +100,7 @@
 
 			var haikuHtml = '<h2>' + titleText + '</h2>';
 			$('.haiku-ttl').html(haikuHtml);
-			
+
 			    haikuHtml = '<p class="author">by Haiku Bot</p>';
 			    haikuHtml += '<p>' + line1Text + '<br />';
 			    haikuHtml += line2Text + '<br />';
@@ -148,8 +148,8 @@
 		 *  @description Gets a list of public images from Flickr and writes to HTML */
 		function getImage() {
 			//Flickr API
-			var f_id = '';		//A single user ID. 
-			var f_ids = '';		//A comma delimited list of user IDs. 
+			var f_id = '';		//A single user ID.
+			var f_ids = '';		//A comma delimited list of user IDs.
 			var f_tags = 'zen garden,zen,garden';		//A comma delimited list of tags to filter the feed by.
 			var f_tagmode = 'all';	//Control whether items must have ALL the tags (tagmode=all), or ANY (tagmode=any) of the tags. Default is ALL.
 			var f_format = 'json';	//The format of the feed.
@@ -171,6 +171,8 @@
 
 		        });
 		}
+
+
 
 		/** @function haikuBot
 		 *  @description Gets the text, image, and loads it to the page */
@@ -195,12 +197,29 @@
 				});
 		}
 
+    //Listener
+    $('#newHaiku').on('click', function() {
+      haikuBot();
+    });
+
 		haikuBot();
 
-		//Listener
-		$('#newHaiku').on('click', function() {
-			haikuBot();
-		});
+    // Check for the various File API support.
+    if !(window.File && window.FileReader && window.FileList && window.Blob) {
+      alert('The File APIs are not fully supported in this browser.');
+    }
+
+    $('#syllText').on("change", function(this.files) {
+      //File Handler
+      var selectedFile = $('#syllText').files[0];
+      var fileName = selectedFile.name;
+      var fileType - selectedFile.type;
+      var fileBytes selectedFile.size;
+      var outputHtml = '<p><strong>' + fileName + '</strong> (' + fileType + ') - ' + fileSize + ' bytes</p>';
+
+      $('#list').html(outputHtml);
+    };
+
 
     } //End init
 
